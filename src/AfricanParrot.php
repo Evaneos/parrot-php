@@ -2,7 +2,20 @@
 
 namespace Parrot;
 
-class AfricanParrot extends CommonParrot {
+class AfricanParrot implements Parrot{
+
+    /** @var int */
+    private $numberOfCoconuts = 0;
+
+    /**
+     * Constructor.
+     *
+     * @param int $numberOfCoconuts
+     */
+    public function __construct($numberOfCoconuts)
+    {
+        $this->numberOfCoconuts = $numberOfCoconuts;
+    }
 
     /**
      * @{inherited}

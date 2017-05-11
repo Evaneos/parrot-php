@@ -4,8 +4,6 @@ namespace Parrot;
 
 abstract class CommonParrot implements Parrot {
 
-    /** @var int */
-    protected $numberOfCoconuts = 0;
     /** @var  double */
     protected $voltage;
     /** @var  boolean */
@@ -14,12 +12,10 @@ abstract class CommonParrot implements Parrot {
     /**
     * Parrot constructor.
     *
-    * @param int $numberOfCoconuts
     * @param float $voltage
     * @param bool $isNailed
     */
-    public function __construct($numberOfCoconuts, $voltage, $isNailed) {
-        $this->numberOfCoconuts = $numberOfCoconuts;
+    public function __construct($voltage, $isNailed) {
         $this->voltage = $voltage;
         $this->isNailed = $isNailed;
     }
