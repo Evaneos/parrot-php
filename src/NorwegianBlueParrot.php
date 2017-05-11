@@ -2,7 +2,23 @@
 
 namespace Parrot;
 
-class NorwegianBlueParrot extends CommonParrot {
+class NorwegianBlueParrot implements Parrot {
+
+    /** @var  double */
+    private $voltage;
+    /** @var  boolean */
+    private $isNailed;
+
+    /**
+    * Parrot constructor.
+    *
+    * @param float $voltage
+    * @param bool $isNailed
+    */
+    public function __construct($voltage, $isNailed) {
+        $this->voltage = $voltage;
+        $this->isNailed = $isNailed;
+    }
 
     /**
      * @{inherited}
