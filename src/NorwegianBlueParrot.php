@@ -5,6 +5,17 @@ namespace Parrot;
 class NorwegianBlueParrot extends Parrot
 {
     /**
+     * NorwegianBlueParrot constructor.
+     *
+     * @param float $voltage
+     * @param bool  $isNailed
+     */
+    public function __construct($voltage, $isNailed)
+    {
+        parent::__construct(null, $voltage, $isNailed);
+    }
+
+    /**
      * @return float
      * @throws \Exception
      */

@@ -5,6 +5,14 @@ namespace Parrot;
 class EuropeanParrot extends Parrot
 {
     /**
+     * EuropeanParrot constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct(null, null, false);
+    }
+
+    /**
      * @return float
      * @throws \Exception
      */

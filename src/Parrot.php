@@ -41,40 +41,4 @@ abstract class Parrot
      * @throws \Exception
      */
     abstract public function getSpeed();
-
-    /**
-     * @param int   $numberOfCoconuts
-     * @param float $voltage
-     * @param bool  $isNailed
-     *
-     * @return Parrot
-     */
-    public static function europeanParrot($numberOfCoconuts, $voltage, $isNailed)
-    {
-        return new EuropeanParrot($numberOfCoconuts, $voltage, $isNailed);
-    }
-
-    /**
-     * @param int   $numberOfCoconuts
-     * @param float $voltage
-     * @param bool  $isNailed
-     *
-     * @return Parrot
-     */
-    public static function africanParrot($numberOfCoconuts, $voltage, $isNailed)
-    {
-        return new AfricanParrot($numberOfCoconuts, $voltage, $isNailed);
-    }
-
-    /**
-     * @param int   $numberOfCoconuts
-     * @param float $voltage
-     * @param bool  $isNailed
-     *
-     * @return Parrot
-     */
-    public static function norwegianBlueParrot($numberOfCoconuts, $voltage, $isNailed)
-    {
-        return new NorwegianBlueParrot($numberOfCoconuts, $voltage, $isNailed);
-    }
 }

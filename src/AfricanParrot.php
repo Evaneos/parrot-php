@@ -5,6 +5,16 @@ namespace Parrot;
 class AfricanParrot extends Parrot
 {
     /**
+     * AfricanParrot constructor.
+     *
+     * @param int $nbCoconuts
+     */
+    public function __construct($nbCoconuts)
+    {
+        parent::__construct($nbCoconuts, null, false);
+    }
+
+    /**
      * @return float
      * @throws \Exception
      */
