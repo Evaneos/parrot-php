@@ -4,6 +4,8 @@ namespace Parrot;
 
 class NorwegianBlueParrot implements Parrot {
 
+    const TOP_SPEED = 24.0;
+
     /** @var  double */
     private $voltage;
     /** @var  boolean */
@@ -28,6 +30,6 @@ class NorwegianBlueParrot implements Parrot {
     }
 
     private function getBaseSpeedWith($voltage) {
-        return min(24.0, $voltage * Parrot::BASE_SPEED);
+        return min(self::TOP_SPEED, $voltage * Parrot::BASE_SPEED);
     }
 }
