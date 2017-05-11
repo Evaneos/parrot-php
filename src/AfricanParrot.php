@@ -5,14 +5,14 @@ namespace Parrot;
 class AfricanParrot implements Parrot{
 
     /** @var int */
-    private $numberOfCoconuts = 0;
+    private $numberOfCoconuts;
 
     /**
      * Constructor.
      *
      * @param int $numberOfCoconuts
      */
-    public function __construct($numberOfCoconuts)
+    public function __construct($numberOfCoconuts = 0)
     {
         $this->numberOfCoconuts = $numberOfCoconuts;
     }
