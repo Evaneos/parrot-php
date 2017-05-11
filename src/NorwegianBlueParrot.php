@@ -2,8 +2,17 @@
 
 namespace Parrot;
 
-class NorwegianBlueParrot extends Parrot
+class NorwegianBlueParrot implements Parrot
 {
+    /** @var double */
+    const MAX_SPEED_WITH_VOLTAGE = 24.0;
+
+    /** @var  double */
+    protected $voltage;
+
+    /** @var  boolean */
+    protected $isNailed;
+
     /**
      * NorwegianBlueParrot constructor.
      *
@@ -12,12 +21,12 @@ class NorwegianBlueParrot extends Parrot
      */
     public function __construct($voltage, $isNailed)
     {
-        parent::__construct(null, $voltage, $isNailed);
+        $this->voltage = $voltage;
+        $this->isNailed = $isNailed;
     }
 
     /**
      * @return float
-     * @throws \Exception
      */
     public function getSpeed()
     {
@@ -29,6 +38,6 @@ class NorwegianBlueParrot extends Parrot
      */
     private function getBaseSpeedWithVoltage()
     {
-        return min(Parrot::MAX_SPEED_WITH_VOLTAGE, $this->voltage * Parrot::BASE_SPEED);
+        return min(self::MAX_SPEED_WITH_VOLTAGE, $this->voltage * Parrot::BASE_SPEED);
     }
 }

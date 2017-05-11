@@ -57,6 +57,6 @@ class ParrotTest extends \PHPUnit_Framework_TestCase
     public function get_speed_norwegian_blue_parrot_not_nailed_high_voltage()
     {
         $parrot = new NorwegianBlueParrot(4, false);
-        $this->assertEquals(Parrot::MAX_SPEED_WITH_VOLTAGE, $parrot->getSpeed());
+        $this->assertEquals(NorwegianBlueParrot::MAX_SPEED_WITH_VOLTAGE, $parrot->getSpeed());
     }
 }

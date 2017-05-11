@@ -2,24 +2,29 @@
 
 namespace Parrot;
 
-class AfricanParrot extends Parrot
+class AfricanParrot implements Parrot
 {
+    /** @var double */
+    const LOAD_FACTOR = 9.0;
+
+    /** @var int */
+    protected $numberOfCoconuts = 0;
+
     /**
      * AfricanParrot constructor.
      *
-     * @param int $nbCoconuts
+     * @param int $numberOfCoconuts
      */
-    public function __construct($nbCoconuts)
+    public function __construct($numberOfCoconuts)
     {
-        parent::__construct($nbCoconuts, null, false);
+        $this->numberOfCoconuts = $numberOfCoconuts;
     }
 
     /**
      * @return float
-     * @throws \Exception
      */
     public function getSpeed()
     {
-        return max(0, Parrot::BASE_SPEED - Parrot::LOAD_FACTOR * $this->numberOfCoconuts);
+        return max(0, Parrot::BASE_SPEED - self::LOAD_FACTOR * $this->numberOfCoconuts);
     }
 }
