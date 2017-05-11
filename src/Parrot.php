@@ -2,31 +2,35 @@
 
 namespace Parrot;
 
-class Parrot
+abstract class Parrot
 {
-    /** @var int ParrotTypeEnum */
-    private $type;
+    /** @var double */
+    const BASE_SPEED = 12.0;
+
+    /** @var double */
+    const LOAD_FACTOR = 9.0;
+
+    /** @var double */
+    const MAX_SPEED_WITH_VOLTAGE = 24.0;
 
     /** @var int */
-    private $numberOfCoconuts = 0;
+    protected $numberOfCoconuts = 0;
 
     /** @var  double */
-    private $voltage;
+    protected $voltage;
 
     /** @var  boolean */
-    private $isNailed;
+    protected $isNailed;
 
     /**
      * Parrot constructor.
      *
-     * @param int   $type
      * @param int   $numberOfCoconuts
      * @param float $voltage
      * @param bool  $isNailed
      */
-    public function __construct($type, $numberOfCoconuts, $voltage, $isNailed)
+    public function __construct($numberOfCoconuts, $voltage, $isNailed)
     {
-        $this->type = $type;
         $this->numberOfCoconuts = $numberOfCoconuts;
         $this->voltage = $voltage;
         $this->isNailed = $isNailed;
@@ -36,32 +40,41 @@ class Parrot
      * @return float
      * @throws \Exception
      */
-    public function getSpeed()
+    abstract public function getSpeed();
+
+    /**
+     * @param int   $numberOfCoconuts
+     * @param float $voltage
+     * @param bool  $isNailed
+     *
+     * @return Parrot
+     */
+    public static function europeanParrot($numberOfCoconuts, $voltage, $isNailed)
     {
-        switch ($this->type) {
-            case ParrotTypeEnum::EUROPEAN:
-                return $this->getBaseSpeed();
-            case ParrotTypeEnum::AFRICAN:
-                return max(0, $this->getBaseSpeed() - $this->getLoadFactor() * $this->numberOfCoconuts);
-            case ParrotTypeEnum::NORWEGIAN_BLUE:
-                return $this->isNailed ? 0 : $this->getBaseSpeedWith($this->voltage);
-        }
-        throw new \Exception("Should be unreachable");
+        return new EuropeanParrot($numberOfCoconuts, $voltage, $isNailed);
     }
 
-    private function getBaseSpeedWith($voltage)
+    /**
+     * @param int   $numberOfCoconuts
+     * @param float $voltage
+     * @param bool  $isNailed
+     *
+     * @return Parrot
+     */
+    public static function africanParrot($numberOfCoconuts, $voltage, $isNailed)
     {
-        return min(24.0, $voltage * $this->getBaseSpeed());
+        return new AfricanParrot($numberOfCoconuts, $voltage, $isNailed);
     }
 
-    private function getLoadFactor()
+    /**
+     * @param int   $numberOfCoconuts
+     * @param float $voltage
+     * @param bool  $isNailed
+     *
+     * @return Parrot
+     */
+    public static function norwegianBlueParrot($numberOfCoconuts, $voltage, $isNailed)
     {
-        return 9.0;
+        return new NorwegianBlueParrot($numberOfCoconuts, $voltage, $isNailed);
     }
-
-    private function getBaseSpeed()
-    {
-        return 12.0;
-    }
-
 }
