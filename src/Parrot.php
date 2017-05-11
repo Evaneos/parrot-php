@@ -3,6 +3,10 @@
 namespace Parrot;
 
 class Parrot {
+
+  const BASE_SPEED = 12.0;
+  const LOAD_FACTOR = 9.0;
+
   /** @var int ParrotTypeEnum */
   private $type;
   /** @var int */
@@ -33,9 +37,9 @@ class Parrot {
   public function getSpeed() {
     switch ($this->type) {
       case ParrotTypeEnum::EUROPEAN:
-        return $this->getBaseSpeed();
+        return self::BASE_SPEED;
       case ParrotTypeEnum::AFRICAN:
-        return max(0, $this->getBaseSpeed() - $this->getLoadFactor() * $this->numberOfCoconuts);
+        return max(0, self::BASE_SPEED - self::LOAD_FACTOR * $this->numberOfCoconuts);
       case ParrotTypeEnum::NORWEGIAN_BLUE:
         return $this->isNailed ? 0 : $this->getBaseSpeedWith($this->voltage);
     }
@@ -43,15 +47,6 @@ class Parrot {
   }
 
   private function getBaseSpeedWith($voltage) {
-    return min(24.0, $voltage * $this->getBaseSpeed());
+    return min(24.0, $voltage * self::BASE_SPEED);
   }
-
-  private function getLoadFactor() {
-    return 9.0;
-  }
-
-  private function getBaseSpeed() {
-    return 12.0;
-  }
-
 }
