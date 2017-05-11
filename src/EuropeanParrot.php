@@ -2,7 +2,7 @@
 
 namespace Parrot;
 
-class EuropeanParrot extends CommonParrot {
+class EuropeanParrot implements Parrot {
 
     /**
      * @{inherited}
