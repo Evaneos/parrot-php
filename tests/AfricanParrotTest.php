@@ -10,12 +10,14 @@ class AfricanParrotTest extends \PHPUnit_Framework_TestCase{
         $this->assertEquals(12.0, $parrot->getSpeed());
     }
 
+    /** @test */
     public function it_should_fly_slower_with_coconuts()
     {
         $parrot = new AfricanParrot(1);
         $this->assertEquals(3.0, $parrot->getSpeed());
     }
 
+    /** @test */
     public function it_should_not_be_able_to_fly_with_to_much_coconuts()
     {
         $parrot = new AfricanParrot(2);

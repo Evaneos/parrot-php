@@ -4,6 +4,7 @@ namespace Parrot;
 
 class NorwegianBlueParrotTest extends \PHPUnit_Framework_TestCase{
 
+    /** @test */
     public function it_should_not_fly_faster_above_maximum_speed()
     {
         $parrot = new NorwegianBlueParrot(3.0, false);
